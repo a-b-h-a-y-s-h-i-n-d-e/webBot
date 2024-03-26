@@ -11,34 +11,69 @@
             padding: 0;
             background-color: #f2f2f2;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
+        .header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        h1 {
-            color: #333;
+        .imgdiv{
+            width: 90px;
+            height: 90px;
+
         }
-        p {
-            color: #666;
+        .container{
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            height: 200px;
         }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
+        #Techcrunch{
+            width: 150px;
+            height: 100px; 
+            
+            
+            cursor: pointer;
+
         }
-        .button:hover {
-            background-color: #0056b3;
+        #Bensbites{
+            width: 150px;
+            height: 100px; 
+            cursor: pointer;
+        }
+        button{
+            margin: 0 10px;
+        }
+        img{
+            max-width: 100%;
+            max-height: 100%;
         }
     </style>
 </head>
 <body>
 
-<p>hello world!</p>
+<div class="header">
+    <h1>Scraping Bot</h1>
+    <div class="imgdiv">
+        <img src="{{ url_for('static', path='./images/bot.png') }}">
+    </div>
+    
+
+</div>
+<hr>
+
+<div class="container">
+    <button id="Techcrunch">
+        <img src="{{ url_for('static', path='./images/techcrunch-logo.png') }}" width="300" alt="Techcrunch">
+    </button>
+    <button id = "Bensbites">
+        <img src="{{ url_for('static', path='./images/bensbites-logo.jpg') }}" width="250" alt="Ben's Bites">
+    </button>
+</div>
+
+<div class="scrapedData">
+    <p>The scraped data will come here</p>
+
+</div>
 
 </body>
 </html>
