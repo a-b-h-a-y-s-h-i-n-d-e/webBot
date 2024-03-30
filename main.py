@@ -35,7 +35,7 @@ app.add_middleware(
 
 # Get requests
 
-@app.get('/', response_class=HTMLResponse)
+@app.get('https://web-bot-abhays-projects-bdb1b6d4.vercel.app/', response_class=HTMLResponse)
 def homePage(request : Request):
     return templates.TemplateResponse(
         "home.html",
