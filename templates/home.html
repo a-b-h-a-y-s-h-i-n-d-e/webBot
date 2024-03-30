@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
 
     <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
-    <script src="{{ url_for('static', path='script.js') }}"></script>
     
+    <script>
+        function redirectToTechcrunch() {
+            window.location.href = "/techcrunch";
+        }
+        function redirectToHackernews() {
+            window.location.href = "/hackernews";
+        }
+    </script>
 
 
 </head>
+
 <body>
 
-<div class="header">
-    <h1>Scraping Bot</h1>
-    <div class="imgdiv">
-        <img src="{{ url_for('static', path='./images/bot.png') }}">
+    <div class="header">
+        <h1>Scraping Bot</h1>
+        <div class="imgdiv">
+            <img src="{{ url_for('static', path='./images/bot.png') }}">
+        </div>
     </div>
-</div>
-<hr>
-
-<div class="container">
-    <button id="Techcrunch" onclick="redirectToTechcrunch()">
-        <img src="{{ url_for('static', path='./images/techcrunch-logo.png') }}" width="300" alt="Techcrunch">
-    </button>
-
-    <button id="Hackernews" onclick="redirectToHackernews()">
-        <img src="{{ url_for('static', path='./images/hackernews-logo.jpg') }}" width="165" alt="Hackernews">
-    </button>
-</div>
-
-<div class="scrapedData">
-    <h3 id = "info">The scraped data will be redirected to another page!</h3>
     <hr>
-    
 
-</div>
+    <div class="container">
+        <button id="Techcrunch" onclick="redirectToTechcrunch()">
+            <img src="{{ url_for('static', path='./images/techcrunch-logo.png') }}" width="300" alt="Techcrunch">
+        </button>
+
+        <button id="Hackernews" onclick="redirectToHackernews()">
+            <img src="{{ url_for('static', path='./images/hackernews-logo.jpg') }}" width="165" alt="Hackernews">
+        </button>
+    </div>
+
+    <div class="scrapedData">
+        <h3 id="info">The scraped data will be redirected to another page!</h3>
+        <hr>
+
+
+    </div>
 
 </body>
+
 </html>
