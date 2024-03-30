@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 import json
+import uvicorn
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -61,7 +62,9 @@ def techcrunchPage(request : Request):
             "request" : request,
         }
     )
-    
+
+if __name__ == "__main__":
+    uvicorn.run(app, host = "0.0.0.0", port = 8000)
 
 
 
