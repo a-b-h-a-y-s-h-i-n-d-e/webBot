@@ -6,7 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 
-from scripts import techcrunch
+
 import json
 
 app = FastAPI()
@@ -48,6 +48,15 @@ def homePage(request : Request):
 def techcrunchPage(request : Request):
     return templates.TemplateResponse(
         "techcrunch.html",
+        {
+            "request" : request,
+        }
+    )
+
+@app.get('/hackernews', response_class=HTMLResponse)
+def techcrunchPage(request : Request):
+    return templates.TemplateResponse(
+        "hackernews.html",
         {
             "request" : request,
         }
