@@ -3,21 +3,31 @@
 <head>
     <script src="{{ url_for('static', path='techcrunchLogic.js') }}"></script>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            
+        }
+
         h2{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-       } 
-       ul{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-       }
-       li{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-       }
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding: 0;
+            margin-bottom: 10px;
+            list-style-position: inside; 
+        }
+
+        li {
+            
+            text-align: left ; 
+            margin-bottom: 15px; 
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -27,6 +37,8 @@
     <h2>Latest TechCrunch News</h2>
     <ul id="techcrunch-list"></ul>
 </div>
+
+
 
 </body>
 </html>
