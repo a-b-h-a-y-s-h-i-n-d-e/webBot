@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function fetchTechCrunchData() {
-    const url = "https://techcrunch-api-abhays-projects-bdb1b6d4.vercel.app/";
+    const url = "https://techcrunch-api.vercel.app/";
     fetch(url)
         .then(response => response.json())
         .then(data => renderTechcrunchData(data))
@@ -12,12 +12,17 @@ function fetchTechCrunchData() {
 
 function renderTechcrunchData(data) {
     const techcrunchList = document.getElementById("techcrunch-list");
-    techcrunchList.innerHTML = ""; // Clear previous data
-
+    // cleaning previous data!
+    techcrunchList.innerHTML = ""; 
 
     for(const [key, value] of Object.entries(data)){
         const listItem = document.createElement("li");
-        listItem.textContent = value; // Assuming the JSON structure has a 'title' property
+        const anchor = document.createElement("a");
+        anchor.textContent = key;
+        anchor.href = value;
+        anchor.target = "_blank";
+        listItem.appendChild(anchor);
         techcrunchList.appendChild(listItem);
     }
 }
+
