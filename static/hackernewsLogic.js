@@ -1,12 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
+    showLoadingBar();
     fetchHackerNewsData();
 });
+
+function showLoadingBar(){
+    const loadingBar = document.getElementById('loading-bar');
+    loadingBar.style.display = "block";
+}
+function hideLoadingBar(){
+    const loadingBar = document.getElementById('loading-bar');
+    loadingBar.style.display = "none";
+}
+
 
 function fetchHackerNewsData() {
     const url = "https://hackernews-api-mu.vercel.app/";
     fetch(url)
         .then(response => response.json())
-        .then(data => renderHackerNewsData(data))
+        .then(data => {
+            hideLoadingBar();
+            renderHackerNewsData(data)})
         .catch(error => console.error("Error fetching TechCrunch data:", error));
 }
 

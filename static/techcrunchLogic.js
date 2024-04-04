@@ -1,12 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
+    showLoadingBar();
     fetchTechCrunchData();
 });
+
+function showLoadingBar(){
+    const loadingBar = document.getElementById('loading-bar');
+    loadingBar.style.display = "block";
+}
+function hideLoadingBar(){
+    const loadingBar = document.getElementById('loading-bar');
+    loadingBar.style.display = "none";
+}
 
 function fetchTechCrunchData() {
     const url = "https://techcrunch-api.vercel.app/";
     fetch(url)
         .then(response => response.json())
-        .then(data => renderTechcrunchData(data))
+        .then(data => {
+            hideLoadingBar();
+            renderTechcrunchData(data)})
         .catch(error => console.error("Error fetching TechCrunch data:", error));
 }
 
